@@ -94,18 +94,33 @@ TTS 품질은 기기에 설치된 음성에 달려 있습니다.
 
 ---
 
-## 5. GitHub Pages에 올리기 (`@parkseongdu-sketch`)
+## 5. GitHub Pages 배포 상태 (`@parkseongdu-sketch`)
 
-1. github.com에서 **New repository** → 이름 예: `shadowing-lab` → Public → Create
-2. **Add file › Upload files** 로 `index.html` 하나만 올리고 Commit
-   (아이콘·스크립트가 모두 HTML 안에 있어 이 파일 하나면 됩니다)
-3. 저장소 **Settings › Pages**
-   - Source: **Deploy from a branch**
-   - Branch: **main** / **/(root)** → Save
-4. 1~2분 뒤 주소가 생깁니다: `https://parkseongdu-sketch.github.io/shadowing-lab/`
-5. 아이폰 Safari로 열고 **홈 화면에 추가**
+**지금 바로 쓰는 주소: <https://parkseongdu-sketch.github.io/dudu-shadowing/>**
 
-> 저장소를 `parkseongdu-sketch.github.io`라는 이름으로 만들면 주소가 `https://parkseongdu-sketch.github.io/`가 됩니다.
+- 저장소: `parkseongdu-sketch/dudu-shadowing` (Public)
+- 공개 주소: `https://parkseongdu-sketch.github.io/dudu-shadowing/`
+- 배포 설정: **Settings › Pages** — Deploy from a branch / **`gh-pages`** / `/ (root)`
+- 저장소 구성
+  - `main` — 원본 브랜치 (`index.html`, `README.md`, `icon-180.png`)
+  - `gh-pages` — 실제로 서비스되는 브랜치 (현재 `main`과 같은 내용)
+  - `preview/`는 `.gitignore`에 넣어 저장소에 올리지 않습니다.
+- 아이폰 Safari로 주소를 열고 **홈 화면에 추가**
+
+### 수정한 내용을 반영하려면
+
+서비스는 `gh-pages` 브랜치를 보고 있으므로, 고친 뒤 **두 브랜치 모두** 올립니다.
+
+```bash
+cd shadowing-app
+git add -A && git commit -m "문장 추가"
+git push origin main
+git push origin main:gh-pages
+```
+
+푸시 후 1~2분 안에 GitHub Pages가 다시 빌드되고, 위 주소에 바로 반영됩니다. (빌드 상태는 저장소 **Actions › pages build and deployment** 에서 확인)
+
+> 참고: 예전 문서에 적힌 `shadowing-lab` 저장소는 만들지 않았습니다. 실제 저장소 이름은 `dudu-shadowing`입니다.
 
 ---
 
